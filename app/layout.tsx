@@ -5,9 +5,9 @@ import { ReactNode } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-	title: "Code Agent",
-	description: "Code Agent",
-	generator: "Code Agent",
+	title: "AI Design System Agents",
+	description: "AI Design System Agents",
+	generator: "AI Design System Agents",
 };
 
 export default function RootLayout({

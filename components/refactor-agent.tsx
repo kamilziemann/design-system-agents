@@ -53,7 +53,7 @@ export const RefactorAgent = () => {
 	return (
 		<Card>
 			<CardHeader>
-				<div className="flex items-center justify-between">
+				<div className="flex items-center justify-between ">
 					<CardTitle>Refactor Agent</CardTitle>
 					<SampleButtons onSampleSelect={handleSampleSelect} />
 				</div>

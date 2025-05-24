@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { sampleCode } from "@/lib/sample-code";
+import { cn } from '@/lib/utils';
 import { Language } from "@/types/enums";
 
 const samples = [
@@ -16,7 +17,12 @@ interface SampleButtonsProps {
 }
 
 export const SampleButtons = ({ onSampleSelect, className = "" }: SampleButtonsProps) => (
-	<div className={`flex gap-2 ${className}`}>
+	<div
+		className={cn(
+			"flex gap-2 flex-wrap",
+			className
+		)}
+	>
 		{samples.map((sample) => (
 			<Button
 				key={sample.key}

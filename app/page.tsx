@@ -1,10 +1,11 @@
 "use client";
+
 import { RefactorAgent } from "@/components/refactor-agent";
 import { ComponentConverter } from "@/components/component-converter";
 import { ComponentAgent } from "@/components/component-agent";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-export const HomePage = () => (
+const HomePage = () => (
 	<div className="min-h-screen bg-gray-50">
 		<div className="container mx-auto px-4 py-8">
 			<div className="text-center mb-8">
@@ -18,7 +19,7 @@ export const HomePage = () => (
 				defaultValue="refactor"
 				className="w-full"
 			>
-				<TabsList className="grid w-full grid-cols-4 mb-8">
+				<TabsList className="grid w-full grid-cols-3 mb-8">
 					<TabsTrigger value="refactor">Refactor Agent</TabsTrigger>
 					<TabsTrigger value="converter">Component Converter</TabsTrigger>
 					<TabsTrigger value="generator">Component Agent</TabsTrigger>
@@ -40,3 +41,4 @@ export const HomePage = () => (
 	</div>
 );
 
+export default HomePage;
