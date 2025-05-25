@@ -11,13 +11,14 @@ import { toast } from "sonner";
 
 import { useInputOutput } from "@/hooks/use-input-output";
 import { Language } from "@/types/enums";
+import { API_ROUTES } from '@/consts/api-routes';
 
 export const RefactorAgent = () => {
 	const [inputCode, setInputCode] = useState("");
 	const [language, setLanguage] = useState<Language>(Language.REACT);
 
 	const { output, isLoading, generate, stop, clear } = useInputOutput({
-		api: "/api/refactor/chat",
+		api: API_ROUTES.REFACTOR,
 		body: { language },
 		onSuccess: () => {
 			toast.success("Code refactored successfully");

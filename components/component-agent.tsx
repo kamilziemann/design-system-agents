@@ -11,6 +11,7 @@ import { toast } from "sonner"
 
 import { useInputOutput } from "@/hooks/use-input-output"
 import { Language } from '@/types/enums'
+import { API_ROUTES } from '@/consts/api-routes'
 
 export const ComponentAgent = () => {
   const [requirements, setRequirements] = useState("")
@@ -18,7 +19,7 @@ export const ComponentAgent = () => {
 
 
   const { output, isLoading, generate, stop, clear } = useInputOutput({
-    api: "/api/generate/chat",
+    api: API_ROUTES.GENERATE,
     body: { language: targetLanguage },
     onSuccess: () => {
       toast.success(`Your ${targetLanguage} component has been generated.`)

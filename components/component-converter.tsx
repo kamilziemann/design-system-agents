@@ -11,6 +11,7 @@ import { toast } from "sonner"
 
 import { useInputOutput } from "@/hooks/use-input-output"
 import { Language } from '@/types/enums'
+import { API_ROUTES } from '@/consts/api-routes'
 
 export const ComponentConverter = () => {
   const [inputCode, setInputCode] = useState("")
@@ -19,7 +20,7 @@ export const ComponentConverter = () => {
 
 
   const { output, isLoading, generate, stop, clear } = useInputOutput({
-    api: "/api/convert/chat",
+    api: API_ROUTES.CONVERT,
     body: { sourceLanguage, targetLanguage },
     onSuccess: () => {
       toast.success(`Your ${sourceLanguage} code has been converted to ${targetLanguage}.`)
@@ -46,7 +47,8 @@ export const ComponentConverter = () => {
       return
     }
 
-    const prompt = `Convert this ${sourceLanguage} component to ${targetLanguage}, preserving all functionality and visual design:\n\n\`\`\`${sourceLanguage}\n${inputCode}\n\`\`\``
+    const prompt = `Convert this ${sourceLanguage} component to ${targetLanguage}, preserving all functionality and visual design:
+    \n\n\`\`\`${sourceLanguage}\n${inputCode}\n\`\`\``
     await generate(prompt)
   }
 

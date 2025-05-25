@@ -1,5 +1,5 @@
 import { streamText } from "ai";
-import { google } from "@ai-sdk/google";
+import { google, GoogleGenerativeAIProviderOptions } from "@ai-sdk/google";
 import type { z } from "zod";
 import type { ErrorResponse } from "./validation-schemas";
 
@@ -13,8 +13,16 @@ export const createAIStream = async (systemPrompt: string, userMessage: string) 
 				content: userMessage,
 			},
 		],
+    providerOptions: {
+      google: {
+        thinkingConfig: {
+          thinkingBudget: 0,
+        },
+      } satisfies GoogleGenerativeAIProviderOptions,
+    },
 		temperature: 0.1,
 		maxTokens: 10000,
+    
 	});
 
 export const createValidationErrorResponse = (error: z.ZodError): Response => {
